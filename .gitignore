@@ -1,3 +1,10 @@
+# Custom
+build/
+bin/
+lib/
+
+# Github C++ template
+
 # Prerequisites
 *.d
 

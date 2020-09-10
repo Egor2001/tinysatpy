@@ -1,0 +1,3 @@
+[submodule "tinySAT"]
+	path = tinySAT
+	url = https://github.com/Egor2001/tinySAT
