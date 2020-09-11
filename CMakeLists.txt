@@ -11,16 +11,18 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
+set(SOURCES src/TspModule.cpp src/TspCommon.cpp src/TspSolver.cpp)
+
 # TODO: to replace with FindPython
-include_directories(/usr/include/python3.8)
+include_directories(/usr/include/python3.8 src/)
 
-add_library(tinysatpy SHARED module.c)
+add_library(tinysatpy SHARED ${SOURCES})
 
-add_subdirectory(tinysatpy-front)
+add_subdirectory(tinySAT)
 
-target_include_directories(tinysatpy PUBLIC tinysatpy-front)
-target_link_libraries(tinysatpy tinysatpy-front)
+target_include_directories(tinysatpy PUBLIC tinySAT)
+target_link_libraries(tinysatpy dpll)
 
-# is replaced with git submodule to simplify maintenance
+# Is replaced with git submodule to simplify maintenance
 # add_subdirectory(third-party)
 # include_directories(third-party)
